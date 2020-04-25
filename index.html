@@ -8,7 +8,24 @@
 <body>
   <!-- A web component NEEDS to have a dash on its name! -->
   <smile-rating></smile-rating>
-  
+
+  <div class="results"></div>
+  <div class="total"></div>
+
   <script defer src="./script.js"></script>
+
+  <script>
+    const rating = document.querySelector('smile-rating')
+    const results = document.querySelector('.results')
+    const total = document.querySelector('.total')
+    let totalSum = 0;
+    total.innerHTML = `The total of rating is ${totalSum}`;
+    rating.addEventListener('change', () => {
+      totalSum += rating.value;
+      results.innerHTML = `You rated this ${rating.value}`;
+      total.innerHTML = `The total of rating is ${totalSum}`;
+    })
+  </script>
+
 </body>
 </html>
